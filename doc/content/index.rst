@@ -4,7 +4,6 @@
 
 .. |fullscreen_button| image:: Screenshot_2025-03-26_101605.png
    :height: 1em
-   :align: bottom
 
 Sacrifice to Sphinx
 ===================
