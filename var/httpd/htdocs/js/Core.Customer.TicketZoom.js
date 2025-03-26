@@ -231,7 +231,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
                     '</button>' +
                 '</div>';
 
-            $Article.append($ArticleFooter);
+            Article.append($ArticleFooter);
 
 // EO CustomerTicketZoom-ArticleFullScreen
             
