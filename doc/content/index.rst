@@ -4,6 +4,7 @@
 
 .. |fullscreen_button| image:: Screenshot_2025-03-26_101605.png
    :height: 1em
+   :align: bottom
 
 Sacrifice to Sphinx
 ===================
@@ -29,8 +30,8 @@ Third-party software
 
 Usage
 =====
-After installing this package no further Configuration is required. 
-There is now a Button (|fullscreen_button|) in the lower right corner of each article in the Zoom View of the Customer Interface to toggle a Fullscreen view for each article.
+After installing this package no further configuration is required. 
+There is now a Button ( |fullscreen_button| ) in the lower right corner of each article in the Zoom View of the Customer Interface to toggle a Fullscreen view for each article.
 
 About
 =======
