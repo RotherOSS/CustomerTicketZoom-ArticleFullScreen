@@ -30,7 +30,7 @@ Third-party software
 Usage
 =====
 After installing this package no further configuration is required. 
-There is now a Button ( |fullscreen_button| ) in the lower right corner of each article in the Zoom View of the Customer Interface to toggle a Fullscreen view for each article.
+There is now a Button  |fullscreen_button|  in the lower right corner of each article in the Zoom View of the Customer Interface to toggle a Fullscreen view for each article.
 
 About
 =======
