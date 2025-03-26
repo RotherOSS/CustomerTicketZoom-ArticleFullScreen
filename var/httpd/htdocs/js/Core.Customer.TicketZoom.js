@@ -193,8 +193,8 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      */
     function BuildArticles(){
         $('#oooArticleListExpanded > li:not(.Activity):not(.EmptyMessage)').each( function() {
-            var $Article = $(this);
-            var $Header  = $Article.children('.MessageHeader').first();
+            var Article = $(this);
+            var Header  = Article.children('.MessageHeader').first();
 
             // attachments
             var Attachments = $('.oooAttachments', Header);
