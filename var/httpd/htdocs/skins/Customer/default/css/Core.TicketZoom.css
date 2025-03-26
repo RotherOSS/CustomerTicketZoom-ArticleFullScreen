@@ -652,7 +652,7 @@ label.oooFocus,
     width: calc(100% - 40px);
 }
 
-/* RotherOSS / CustomerTicketZoom_ArticleFullscreen */
+/* RotherOSS / CustomerTicketZoom-ArticleFullScreen */
 
 /* Fullscreen Buttons */
 #oooArticleListExpanded #ArticleFooter {
@@ -713,4 +713,4 @@ button.oooFullscreenButton svg {
     fill: var(--colTextLight);
 }
 
-/* EO CustomerTicketZoom_ArticleFullscreen */
+/* EO CustomerTicketZoom-ArticleFullScreen */

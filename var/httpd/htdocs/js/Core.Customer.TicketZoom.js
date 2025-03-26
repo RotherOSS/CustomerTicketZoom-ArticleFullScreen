@@ -197,30 +197,30 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             var $Header  = $Article.children('.MessageHeader').first();
 
             // attachments
-            var Attachments = $('.oooAttachments', $Header);
+            var Attachments = $('.oooAttachments', Header);
             if ( Attachments.length ) {
-                $('.oooAttButton', $Header).on('click', function() {
+                $('.oooAttButton', Header).on('click', function() {
                     Attachments.toggle();
                 });
             }
 
             // info button
-            var InfoBox = $('.oooInfoBox', $Header);
+            var InfoBox = $('.oooInfoBox', Header);
             if ( InfoBox.length ) {
-                $('.oooInfoButton', $Header).on('click', function() {
+                $('.oooInfoButton', Header).on('click', function() {
                     InfoBox.toggle();
                 });
             }
 
             // build TOC
             var TOCItem = Core.Template.Render('Customer/TicketZoomTOCItem', {
-                Sender:  $Header.children(".oooSender").first().text(),
-                Age:     $Header.find(".oooAge").first().text(),
-                Subject: $Header.children(".oooSubject").first().text(),
+                Sender:  Header.children(".oooSender").first().text(),
+                Age:     Header.find(".oooAge").first().text(),
+                Subject: Header.children(".oooSubject").first().text(),
                 Attach:  Attachments.length,
             });
 
-// RotherOSS / CustomerTicketZoom_ArticleFullscreen
+// RotherOSS / CustomerTicketZoom-ArticleFullScreen
 
             // add Fullscreen Buttons here to avoid having to override MIMEBase.tt in this package.
             let $ArticleFooter = 
@@ -233,17 +233,17 @@ Core.Customer.TicketZoom = (function (TargetNS) {
 
             $Article.append($ArticleFooter);
 
-// EO CustomerTicketZoom_ArticleFullscreen
+// EO CustomerTicketZoom-ArticleFullScreen
             
             // add Entry to list and make it scroll to the referenced article
             if ( navigator.userAgent.match(/Edge/) ) {
                 $(TOCItem).on('click', function() {
-                    $(window).scrollTop( $($Article[0]).offset().top - 89 );
+                    $(window).scrollTop( $(Article[0]).offset().top - 89 );
                 }).appendTo( $('#oooArticleList') );
             }
             else {
                 $(TOCItem).on('click', function() {
-                    $('html').animate( { scrollTop: $($Article[0]).offset().top - 89 }, 140 );
+                    $('html').animate( { scrollTop: $(Article[0]).offset().top - 89 }, 140 );
                 }).appendTo( $('#oooArticleList') );
             }
         });
@@ -481,7 +481,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             $('#oooTicketInfo.oooTicketInfoPermanent').css('margin-top', '0px').css('top', 'revert').css('max-height', 'revert');
         }
 
-// RotherOSS / CustomerTicketZoom_ArticleFullscreen
+// RotherOSS / CustomerTicketZoom-ArticleFullScreen
 
         /*
          * add onclick for triggering article fullscreen
@@ -489,9 +489,16 @@ Core.Customer.TicketZoom = (function (TargetNS) {
         $('#oooArticleListExpanded li .oooFullscreenButton').on('click', function() {
             let $Article = $(this).closest('li');
             $Article.toggleClass('oooFullscreenActive');
+            let $Iframe = $('iframe', $Article);
+
+            /* set iframe height minimal to allow for correct resizing, otherwise the body grows with the iframe and 
+            will not be resized properly when toggling off fullscreen view. */
+            $Iframe.height('0');
+            
+            ResizeIframe($Iframe);
         });
 
-// EO CustomerTicketZoom_ArticleFullscreen
+// EO CustomerTicketZoom-ArticleFullScreen
 
     };
 
