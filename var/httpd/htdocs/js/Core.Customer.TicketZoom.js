@@ -42,7 +42,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      * @description
      *      Sets the size of the iframe to the size of its inner html.
      */
-    function CalculateHeight(Iframe){
+    function CalculateHeight(Iframe, Timeout=0){
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
 
         setTimeout(function () {
@@ -59,7 +59,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
 
             NewHeight = parseInt(NewHeight, 10) + 25;
             $(Iframe).height(NewHeight + 'px');
-        }, 1500);
+        }, Timeout);
     }
 
     /**
@@ -74,7 +74,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      */
     function ResizeIframe(Iframe, Callback){
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
-        CalculateHeight(Iframe);
+        CalculateHeight(Iframe, 1500);
         if ($.isFunction(Callback)) {
             Callback();
         }
@@ -495,7 +495,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             will not be resized properly when toggling off fullscreen view. */
             $Iframe.height('0');
             
-            ResizeIframe($Iframe);
+            CalculateHeight($Iframe);
         });
 
 // EO CustomerTicketZoom-ArticleFullScreen
