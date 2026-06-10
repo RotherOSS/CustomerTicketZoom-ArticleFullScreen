@@ -2,7 +2,9 @@
 // OTOBO is a web-based ticketing system for service organisations.
 // --
 // Copyright (C) 2001-2020 OTRS AG, https://otrs.com/
-// Copyright (C) 2019-2025 Rother OSS GmbH, https://otobo.io/
+// Copyright (C) 2019-2026 Rother OSS GmbH, https://otobo.io/
+// --
+// $origin: otobo - a8e69180682610b1ed1046b113f809ab32a70309 - var/httpd/htdocs/js/Core.Customer.TicketZoom.js
 // --
 // This program is free software: you can redistribute it and/or modify it under
 // the terms of the GNU General Public License as published by the Free Software
@@ -42,7 +44,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      * @description
      *      Sets the size of the iframe to the size of its inner html.
      */
-    function CalculateHeight(Iframe, Timeout=0){
+    function CalculateHeight(Iframe){
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
 
         setTimeout(function () {
@@ -59,7 +61,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
 
             NewHeight = parseInt(NewHeight, 10) + 25;
             $(Iframe).height(NewHeight + 'px');
-        }, Timeout);
+        }, 1500);
     }
 
     /**
@@ -74,7 +76,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      */
     function ResizeIframe(Iframe, Callback){
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
-        CalculateHeight(Iframe, 1500);
+        CalculateHeight(Iframe);
         if ($.isFunction(Callback)) {
             Callback();
         }
@@ -288,12 +290,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             if ( $(window).width() < 768 ) {
                 $('#ReplyButton').hide();
             }
-            // set the position of the RTE label (Core.UI.RichTextEditor.js)
-            $(window).trigger('resize');
 
-            //set correct initial size after show()
-            let initialRTESize = window.getComputedStyle(document.querySelector(".RichTextHolder")).getPropertyValue("--RTE-init-size-large");
-            $RTE.parent().css("height", initialRTESize);
         });
 
         $('.ActivityStartButton').on('click', function(Event){
