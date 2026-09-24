@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otobo_package version="0.1">
     <Name>CustomerTicketZoom-ArticleFullScreen</Name>
-    <Version>11.0.0</Version>
+    <Version>0.0.0</Version>
     <Framework>11.0.x</Framework>
     <Vendor>Rother OSS GmbH</Vendor>
     <URL>https://otobo.io/</URL>
@@ -9,7 +9,7 @@
     <Description Lang="en">Add fullscreen view for Articles in the Zoom View of the Customer Interface.</Description>
     <Description Lang="de">Fügt eine Vollbildansicht für Artikel in der Detailansicht des Kunden Interface hinzu.</Description>
     <Filelist>
-		<File Permission="660" Location="var/httpd/htdocs/skins/Customer/default/css/Core.TicketZoom.css" />
-		<File Permission="660" Location="var/httpd/htdocs/js/Core.Customer.TicketZoom.js" />
-	</Filelist>
+        <File Permission="660" Location="var/httpd/htdocs/skins/Customer/default/css/Core.TicketZoom.css" />
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Customer.TicketZoom.js" />
+    </Filelist>
 </otobo_package>

@@ -1,7 +1,7 @@
 /* OTOBO is a web-based ticketing system for service organisations.
 
 Copyright (C) 2001-2020 OTRS AG, https://otrs.com/
-Copyright (C) 2019-2025 Rother OSS GmbH, https://otobo.io/
+Copyright (C) 2019-2026 Rother OSS GmbH, https://otobo.io/
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -11,9 +11,6 @@ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
-$origin: otobo - cb7519b61706979a7ebe46a54a9d710b64427662 - var/httpd/htdocs/skins/Customer/default/css/Core.TicketZoom.css
-
 */
 
 @media only screen and (max-width: 500px) {
@@ -304,7 +301,7 @@ button.oooM.ActivitySubmitButton {
     }
 
     #oooTicketInfo.oooTicketInfoPermanent {
-        display: block;
+        display: inline;
         position: sticky;
         margin-top: 24px;
         width: unset;
@@ -604,6 +601,7 @@ button.oooM.ActivitySubmitButton {
 
 .MessageContent iframe {
     width: 100%;
+    max-height: 80vh;
 }
 
 .ActionRow {
