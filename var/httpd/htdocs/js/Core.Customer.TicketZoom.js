@@ -15,8 +15,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 // --
-// $origin: otobo - cb7519b61706979a7ebe46a54a9d710b64427662 - var/httpd/htdocs/js/Core.Customer.TicketZoom.js
-// --
 
 "use strict";
 
@@ -44,7 +42,10 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      * @description
      *      Sets the size of the iframe to the size of its inner html.
      */
-    function CalculateHeight(Iframe){
+// Rother OSS / CustomerTicketZoom-ArticleFullScreen
+/*     function CalculateHeight(Iframe){ */
+    function CalculateHeight(Iframe, Timeout=0){
+// EO CustomerTicketZoom-ArticleFullScreen
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
 
         setTimeout(function () {
@@ -61,7 +62,10 @@ Core.Customer.TicketZoom = (function (TargetNS) {
 
             NewHeight = parseInt(NewHeight, 10) + 25;
             $(Iframe).height(NewHeight + 'px');
-        }, 1500);
+// Rother OSS / CustomerTicketZoom-ArticleFullScreen
+/*         }, 1500); */
+        }, Timeout);
+// EO CustomerTicketZoom-ArticleFullScreen
     }
 
     /**
@@ -76,7 +80,10 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      */
     function ResizeIframe(Iframe, Callback){
         Iframe = isJQueryObject(Iframe) ? Iframe.get(0) : Iframe;
-        CalculateHeight(Iframe);
+// Rother OSS / CustomerTicketZoom-ArticleFullScreen
+/*         CalculateHeight(Iframe); */
+        CalculateHeight(Iframe, 1500);
+// EO CustomerTicketZoom-ArticleFullScreen
         if ($.isFunction(Callback)) {
             Callback();
         }
@@ -169,7 +176,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
      *      status is false (e.g. the article is hidden), the article gets the class 'Visible' again and
      *      the status gets changed to true.
      */
-    function ToggleMessage($Message){
+    function ToggleMessage($Message){   // eslint-disable-line no-unused-vars
         switch ($Message.attr('data-articlestate')) {
             case "untouched":
                 LoadMessage($Message);
@@ -225,7 +232,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
 // RotherOSS / CustomerTicketZoom-ArticleFullScreen
 
             // add Fullscreen Buttons here to avoid having to override MIMEBase.tt in this package.
-            let $ArticleFooter = 
+            let $ArticleFooter =
                 '<div id="ArticleFooter">' +
                     '<button class="oooFullscreenButton">' +
                         '<svg class="oooStartFullscreenIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e3e3e3"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 14c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1H7v-2c0-.55-.45-1-1-1zm0-4c.55 0 1-.45 1-1V7h2c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1zm11 7h-2c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1s-1 .45-1 1v2zM14 6c0 .55.45 1 1 1h2v2c0 .55.45 1 1 1s1-.45 1-1V6c0-.55-.45-1-1-1h-3c-.55 0-1 .45-1 1z"/></svg>' +
@@ -236,7 +243,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             Article.append($ArticleFooter);
 
 // EO CustomerTicketZoom-ArticleFullScreen
-            
+
             // add Entry to list and make it scroll to the referenced article
             if ( navigator.userAgent.match(/Edge/) ) {
                 $(TOCItem).on('click', function() {
@@ -269,8 +276,6 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             $FollowUp = $('#FollowUp'),
             $RTE = $('#RichText'),
             ZoomExpand = $('#ZoomExpand').val(),
-            $Form,
-            FieldID,
             ActivityCount = $('#oooArticleListExpanded > .Activity').length;
 
 
@@ -335,7 +340,7 @@ Core.Customer.TicketZoom = (function (TargetNS) {
         });
 
         // scroll events
-        if ( $('#oooArticleList > li').length ) {
+        if ( $('#oooArticleList > li').length || $('.oooTicketInfoPermanent').length ) {
             $(window).scroll( function() {
                 // change Header on scroll
                 if ( $(window).width() > 767 ) {
@@ -363,7 +368,6 @@ Core.Customer.TicketZoom = (function (TargetNS) {
                     if ( ActiveChild.offset().top < $(window).scrollTop() + 240 ) {
                         var NextChild = $('#oooArticleListExpanded > li:nth-child(' + ( ActiveIndex + 1 ) + ')');
                         while ( NextChild.length && NextChild.offset().top < $(window).scrollTop() + 240 ) {
-                            ActiveChild = NextChild;
                             ActiveIndex++;
                             NextChild = $('#oooArticleListExpanded > li:nth-child(' + ( ActiveIndex + 1 ) + ')');
                         }
@@ -472,10 +476,10 @@ Core.Customer.TicketZoom = (function (TargetNS) {
         });
 
         /*
-         * Set neccessary CSS values for TicketInfo
+         * Set necessary CSS values for TicketInfo
          */
         if ( $('#oooArticleList').children().length == 0 ) {
-            $('#oooTicketInfo.oooTicketInfoPermanent').css('margin-top', '0px').css('top', 'revert').css('max-height', 'revert');
+            $('#oooTicketInfo.oooTicketInfoPermanent').css('margin-top', '0px').css('top', '89px').css('max-height', 'revert');
         }
 
 // RotherOSS / CustomerTicketZoom-ArticleFullScreen
@@ -488,10 +492,10 @@ Core.Customer.TicketZoom = (function (TargetNS) {
             $Article.toggleClass('oooFullscreenActive');
             let $Iframe = $('iframe', $Article);
 
-            /* set iframe height minimal to allow for correct resizing, otherwise the body grows with the iframe and 
+            /* set iframe height minimal to allow for correct resizing, otherwise the body grows with the iframe and
             will not be resized properly when toggling off fullscreen view. */
             $Iframe.height('0');
-            
+
             CalculateHeight($Iframe);
         });
 
