@@ -4,7 +4,7 @@
 // Copyright (C) 2001-2020 OTRS AG, https://otrs.com/
 // Copyright (C) 2019-2026 Rother OSS GmbH, https://otobo.io/
 // --
-// $origin: otobo - a8e69180682610b1ed1046b113f809ab32a70309 - var/httpd/htdocs/js/Core.Customer.TicketZoom.js
+// $origin: otobo - 279ee039c23e44f72ce0b985446fa4c2396a01ad - var/httpd/htdocs/js/Core.Customer.TicketZoom.js
 // --
 // This program is free software: you can redistribute it and/or modify it under
 // the terms of the GNU General Public License as published by the Free Software
