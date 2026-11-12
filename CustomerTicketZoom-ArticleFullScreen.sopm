@@ -6,8 +6,9 @@
     <Vendor>Rother OSS GmbH</Vendor>
     <URL>https://otobo.io/</URL>
     <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
-    <Description Lang="en">Add fullscreen view for Articles in the Zoom View of the Customer Interface.</Description>
+    <Description Lang="en">Adds full screen view for articles in the zoom view of the customer interface.</Description>
     <Description Lang="de">Fügt eine Vollbildansicht für Artikel in der Detailansicht des Kunden Interface hinzu.</Description>
+    <Description Lang="hu">Teljes képernyős nézetet ad az ügyfélfelület nagyítási nézetében lévő bejegyzésekhez.</Description>
     <Filelist>
         <File Permission="660" Location="var/httpd/htdocs/skins/Customer/default/css/Core.TicketZoom.css" />
         <File Permission="660" Location="var/httpd/htdocs/js/Core.Customer.TicketZoom.js" />
